@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+:root {
+  --bg-grey: #f3f3f3;
+  --border-grey: rgb(219, 219, 219);
+}
+body,
+html {
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #262626;
+  letter-spacing: -0.5px;
+  background-color: var(--bg-grey);
+}
+.fas,
+.far {
+  font-size: 20px;
+}
