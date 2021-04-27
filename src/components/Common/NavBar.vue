@@ -10,7 +10,7 @@
       </a>
       <!--  -->
       <div class="search">
-        <!-- <div class="search-placeholder"> -->
+        <!-- 1000px 이상일 때 -->
         <input type="text" class="search-input-box" placeholder="검색" />
         <span class="search-ico">
           <i class="fas fa-search"></i>
@@ -18,13 +18,22 @@
         <button class="search-clear">
           <i class="fas fa-times-circle"></i>
         </button>
-        <!-- </div> -->
       </div>
       <!--  -->
       <ul class="menu">
         <li class="menu-icon-item">
+          <!-- 1000px 이하일 때 -->
+          <button class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </li>
+        <li class="menu-icon-item">
           <a href="#none" class="home-link">
-            <i class="fas fa-home"></i>
+            <img
+              src="https://user-images.githubusercontent.com/65759076/116198727-4a064500-a771-11eb-9b92-0ec5f9b76cad.png"
+              alt="홈버튼"
+              class="home-link-img"
+            />
           </a>
         </li>
         <li class="menu-icon-item">
@@ -72,7 +81,7 @@ export default {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    width: 70%;
+    width: 60%;
     height: 54px;
     .logo {
       width: 103px;
@@ -87,7 +96,7 @@ export default {
       position: absolute;
       left: 50%;
       width: 200px;
-      height: 25px;
+      height: 28px;
       transform: translateX(-50%);
       background-color: var(--bg-grey);
       border: 1px solid var(--border-grey);
@@ -127,8 +136,10 @@ export default {
           color: #b9b9b9;
         }
       }
+      .small-search-button {
+        display: none;
+      }
     }
-
     .menu {
       display: flex;
       align-items: center;
@@ -136,6 +147,15 @@ export default {
       .menu-icon-item {
         margin-left: 20px;
         width: auto;
+        .search-btn {
+          display: none;
+          background-color: #fff;
+          cursor: pointer;
+        }
+        .home-link {
+          position: relative;
+          top: 2px;
+        }
       }
       .profile {
         display: inline-block;
@@ -156,5 +176,19 @@ export default {
   }
 }
 @media screen and (max-width: 1000px) {
+  .NavBar {
+    .NavBar-wrap {
+      .search {
+        display: none;
+      }
+      .menu {
+        .menu-icon-item {
+          .search-btn {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
 }
 </style>
