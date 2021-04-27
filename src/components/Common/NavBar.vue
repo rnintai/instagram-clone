@@ -10,14 +10,39 @@
       </a>
       <!--  -->
       <div class="search">
-        <!-- 1000px 이상일 때 -->
-        <input type="text" class="search-input-box" placeholder="검색" />
+        <input type="text" class="search-input-box" />
         <span class="search-ico">
           <i class="fas fa-search"></i>
         </span>
         <button class="search-clear">
           <i class="fas fa-times-circle"></i>
         </button>
+        <!-- search dropdown 창 -->
+        <div class="wrapper-arrow"></div>
+        <div class="search-dropdown-wrapper">
+          <div class="search-dropdown-header">
+            <span class="search-dropdown-title">최근 검색 항목</span>
+            <button class="search-erase-btn">모두 지우기</button>
+          </div>
+          <ul class="search-dropdown-list">
+            <li class="search-dropdown-item">
+              <a href="#none" class="search-dropdown-link">
+                <search-profile></search-profile>
+              </a>
+            </li>
+            <li class="search-dropdown-item">
+              <a href="#none" class="search-dropdown-link"
+                ><search-profile></search-profile>
+              </a>
+            </li>
+            <li class="search-dropdown-item">
+              <a href="#none" class="search-dropdown-link"
+                ><search-profile></search-profile
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <!--  -->
       </div>
       <!--  -->
       <ul class="menu">
@@ -67,8 +92,13 @@
 </template>
 
 <script>
+import SearchProfile from '@/components/Common/SearchProfile.vue';
+
 export default {
   name: 'NavBar',
+  components: {
+    SearchProfile,
+  },
 };
 </script>
 
@@ -109,17 +139,26 @@ export default {
         background-color: var(--bg-grey);
         &:focus {
           text-align: left;
-          + .search-ico {
+          ~ .search-ico {
             left: 5%;
           }
           ~ .search-clear {
             display: inline-block;
           }
+          ~ .search-dropdown-wrapper {
+            display: inline-block;
+          }
+          ~ .wrapper-arrow {
+            display: inline-block;
+          }
+        }
+        &:not(:focus) {
+          color: white;
         }
       }
       .search-ico {
         position: absolute;
-        left: 40%;
+        left: 50%;
         transform: translateX(-50%);
         margin-bottom: 4px;
         .fas {
@@ -136,6 +175,69 @@ export default {
           color: #b9b9b9;
         }
       }
+
+      // dropdown arrow
+      .wrapper-arrow {
+        display: none;
+        position: absolute;
+        top: 36px;
+        background-color: #fff;
+        border-top: 1px solid var(--border-grey);
+        border-left: 1px solid var(--border-grey);
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        z-index: 1;
+      }
+      //
+      .search-dropdown-wrapper {
+        display: none;
+        position: absolute;
+        width: 375px;
+        background-color: #fff;
+        border: 1px solid var(--border-grey);
+        border-radius: 10px;
+        top: 41px;
+        padding: 10px 0px;
+        .search-dropdown-header {
+          display: flex;
+          justify-content: space-between;
+          margin: 3px 10px;
+          .search-dropdown-title {
+            color: #000;
+            font-weight: 700;
+            font-size: 15px;
+          }
+          .search-erase-btn {
+            background-color: #fff;
+            font-weight: 700;
+            color: #0095f6;
+          }
+        }
+        .search-dropdown-list {
+          display: flex;
+          flex-direction: column;
+          margin-top: 15px;
+          .search-dropdown-item {
+            .search-dropdown-link {
+              width: 100%;
+              border-radius: 6px;
+              &:hover {
+                .SearchProfile {
+                  background-color: var(--bg-grey);
+                  .x-box {
+                    .x-box-btn {
+                      background-color: var(--border-grey);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      //
+
       .small-search-button {
         display: none;
       }
