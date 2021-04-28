@@ -60,7 +60,7 @@
             </button>
           </div> -->
           <!-- search dropdown 창 -->
-          <div class="wrapper-arrow"></div>
+          <!-- <div class="wrapper-arrow"></div>
           <div class="search-dropdown-wrapper">
             <div class="search-dropdown-header">
               <span class="search-dropdown-title">최근 검색 항목</span>
@@ -83,7 +83,7 @@
                 ></a>
               </li>
             </ul>
-          </div>
+          </div> -->
           <!--  -->
         </li>
         <li class="menu-icon-item">
@@ -435,20 +435,19 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
   .NavBar {
+    height: 92px;
     .NavBar-wrap {
       .search {
-        display: none;
+        // display: none;
+        top: 50px;
       }
       .menu {
         .menu-icon-item {
           .search-btn {
-            display: inline-block;
+            // display: inline-block;
           }
-        }
-        .search {
-          display: inline-block;
         }
       }
     }
