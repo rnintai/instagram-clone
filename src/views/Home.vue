@@ -1,12 +1,26 @@
 <template>
-  <main class="home">i'm home</main>
+  <main class="home">
+    <home-feed></home-feed>
+    <user-recommend></user-recommend>
+  </main>
 </template>
 
 <script>
-// @ is an alias to /src
+import HomeFeed from '@/components/Home/HomeFeed.vue';
+import UserRecommend from '@/components/Home/UserRecommend.vue';
 
 export default {
   name: 'Home',
-  components: {},
+  components: { HomeFeed, UserRecommend },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  home-feed {
+  }
+  user-recommend {
+  }
+}
+</style>

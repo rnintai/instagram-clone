@@ -1,13 +1,13 @@
 <template>
   <nav class="NavBar">
     <div class="NavBar-wrap">
-      <a class="logo">
+      <router-link to="/" class="logo">
         <img
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           alt="메인 로고"
           class="logo-image"
         />
-      </a>
+      </router-link>
       <!--  -->
       <div class="search-wrap">
         <div class="search">
@@ -48,28 +48,25 @@
       <!--  -->
       <ul class="menu">
         <li class="menu-icon-item">
-          <a href="#none" class="home-link">
-            <img
-              src="https://user-images.githubusercontent.com/65759076/116198727-4a064500-a771-11eb-9b92-0ec5f9b76cad.png"
-              alt="홈버튼"
-              class="home-link-img"
-            />
-          </a>
+          <router-link to="/" class="home-link">
+            <i class="fas fa-home"></i>
+          </router-link>
         </li>
         <li class="menu-icon-item">
-          <a href="#none" class="direct-link">
+          <router-link to="/direct" class="direct-link">
             <i class="far fa-envelope-open"></i>
-          </a>
+          </router-link>
         </li>
         <li class="menu-icon-item">
           <a href="#none" class="browse-link">
             <i class="far fa-compass"></i>
           </a>
         </li>
-        <li class="menu-icon-item"></li>
-        <a href="#none" class="liked-link">
-          <i class="far fa-heart"></i>
-        </a>
+        <li class="menu-icon-item">
+          <a href="#none" class="liked-link">
+            <i class="far fa-heart"></i>
+          </a>
+        </li>
         <li class="menu-icon-item">
           <a href="#none" class="profile">
             <div class="profile-wrap">
@@ -258,6 +255,11 @@ export default {
         position: relative;
         margin-left: 20px;
         width: auto;
+        // color: #fff;
+        .fas,
+        .far {
+          color: #8f8f8f;
+        }
         .search-btn {
           display: none;
           background-color: #fff;
@@ -271,9 +273,11 @@ export default {
             }
           }
         }
-        .home-link {
-          position: relative;
-          top: 2px;
+        .router-link-exact-active {
+          .fas,
+          .far {
+            color: #000;
+          }
         }
       }
       .profile {

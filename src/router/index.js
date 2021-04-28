@@ -9,6 +9,11 @@ const routes = [
     name: 'Home',
     component: () => import('@/views/Home.vue'),
   },
+  {
+    path: '/direct',
+    name: 'Direct',
+    component: () => import('@/views/Direct.vue'),
+  },
 ];
 
 const router = new VueRouter({
