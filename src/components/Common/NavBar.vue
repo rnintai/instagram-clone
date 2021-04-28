@@ -294,7 +294,7 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 950px) {
   .NavBar {
     height: 92px;
     .NavBar-wrap {
