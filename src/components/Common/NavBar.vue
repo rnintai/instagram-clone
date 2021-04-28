@@ -42,7 +42,6 @@
             </li>
           </ul>
         </div>
-        <!--  -->
       </div>
       <!--  -->
       <ul class="menu">
@@ -51,6 +50,41 @@
           <button class="search-btn">
             <i class="fas fa-search"></i>
           </button>
+          <!-- <div class="search-input">
+            <input type="text" class="search-input-box" />
+            <span class="search-ico">
+              <i class="fas fa-search"></i>
+            </span>
+            <button class="search-clear">
+              <i class="fas fa-times-circle"></i>
+            </button>
+          </div> -->
+          <!-- search dropdown 창 -->
+          <div class="wrapper-arrow"></div>
+          <div class="search-dropdown-wrapper">
+            <div class="search-dropdown-header">
+              <span class="search-dropdown-title">최근 검색 항목</span>
+              <button class="search-erase-btn">모두 지우기</button>
+            </div>
+            <ul class="search-dropdown-list">
+              <li class="search-dropdown-item">
+                <a href="#none" class="search-dropdown-link">
+                  <search-profile></search-profile>
+                </a>
+              </li>
+              <li class="search-dropdown-item">
+                <a href="#none" class="search-dropdown-link"
+                  ><search-profile></search-profile>
+                </a>
+              </li>
+              <li class="search-dropdown-item">
+                <a href="#none" class="search-dropdown-link"
+                  ><search-profile></search-profile
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <!--  -->
         </li>
         <li class="menu-icon-item">
           <a href="#none" class="home-link">
@@ -247,12 +281,136 @@ export default {
       align-items: center;
       padding-right: 20px;
       .menu-icon-item {
+        position: relative;
         margin-left: 20px;
         width: auto;
         .search-btn {
           display: none;
           background-color: #fff;
           cursor: pointer;
+          &:focus {
+            ~ .wrapper-arrow {
+              display: inline-block;
+            }
+            ~ .search-dropdown-wrapper {
+              display: inline-block;
+            }
+          }
+        }
+        .wrapper-arrow {
+          display: none;
+          position: absolute;
+          top: 32px;
+          left: 4px;
+          background-color: #fff;
+          border-top: 1px solid var(--border-grey);
+          border-left: 1px solid var(--border-grey);
+          width: 10px;
+          height: 10px;
+          transform: rotate(45deg);
+          z-index: 1;
+        }
+        //
+        .search-dropdown-wrapper {
+          display: none;
+          position: absolute;
+          width: 375px;
+          background-color: #fff;
+          border: 1px solid var(--border-grey);
+          border-radius: 10px;
+          top: 37px;
+          transform: translateX(-50%);
+          padding: 10px 0px;
+          .search-input {
+            display: flex;
+            justify-content: center;
+            cursor: text;
+            align-items: center;
+            position: relative;
+            left: 50%;
+            width: 200px;
+            height: 28px;
+            transform: translateX(-50%);
+            background-color: var(--bg-grey);
+            border: 1px solid var(--border-grey);
+            border-radius: 3px;
+            color: #8e8e8e;
+            .search-input-box {
+              padding: auto;
+              text-align: center;
+              font-size: 12px;
+              background-color: var(--bg-grey);
+              &:focus {
+                text-align: left;
+                ~ .search-ico {
+                  left: 5%;
+                }
+                ~ .search-clear {
+                  display: inline-block;
+                }
+              }
+              &:not(:focus) {
+                color: white;
+              }
+            }
+
+            .search-ico {
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              margin-bottom: 4px;
+              .fas {
+                font-size: 6px;
+                color: #b9b9b9;
+              }
+            }
+            .search-clear {
+              position: absolute;
+              right: 5%;
+              display: none;
+              .fas {
+                font-size: 14px;
+                color: #b9b9b9;
+              }
+            }
+          }
+
+          .search-dropdown-header {
+            display: flex;
+            justify-content: space-between;
+            margin: 3px 10px;
+            .search-dropdown-title {
+              color: #000;
+              font-weight: 700;
+              font-size: 15px;
+            }
+            .search-erase-btn {
+              background-color: #fff;
+              font-weight: 700;
+              color: #0095f6;
+            }
+          }
+          .search-dropdown-list {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+            .search-dropdown-item {
+              .search-dropdown-link {
+                width: 100%;
+                border-radius: 6px;
+                &:hover {
+                  .SearchProfile {
+                    background-color: var(--bg-grey);
+                    .x-box {
+                      .x-box-btn {
+                        background-color: var(--border-grey);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
         .home-link {
           position: relative;
@@ -288,6 +446,9 @@ export default {
           .search-btn {
             display: inline-block;
           }
+        }
+        .search {
+          display: inline-block;
         }
       }
     }
