@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'SearchProfile',
+  name: "SearchProfile",
 };
 </script>
 
@@ -31,7 +31,6 @@ export default {
 }
 .SearchProfile {
   background-color: transparent;
-  // display: inline-block;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,10 +1,10 @@
 <template>
-  <div class="UserRecommend"></div>
+  <div class="UserRecommend"><span>유저 추천</span></div>
 </template>
 
 <script>
 export default {
-  name: 'UserRecommend',
+  name: "UserRecommend",
 };
 </script>
 
@@ -12,6 +12,6 @@ export default {
 .UserRecommend {
   width: 293px;
   height: 357px;
-  background-color: rgb(124, 29, 29);
+  background-color: rgb(71, 71, 71);
 }
 </style>
